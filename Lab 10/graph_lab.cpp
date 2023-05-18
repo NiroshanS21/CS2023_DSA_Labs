@@ -25,11 +25,7 @@ struct Graph{
 
     void addedge(int u, int v){
         //select node u and push v into u's neighbour
-        //int i=0; // this i for search i node.
-        //while(i<n && nodes[i].label!=u){
-           // i++;
-        //}
-        //nodes[i].neighbours.push_back(v); // successfully insert v for node u
+        
         for(int i=0; i<n;i++){ 
             if(nodes[i].label==u){ //find U node
                 nodes[i].neighbours.push_back(v); // push value V in node u
@@ -38,11 +34,7 @@ struct Graph{
         }
 
         //select node v and push u into v's neighbour
-        //int j=0; // this j for search j node in graph array.
-        //while(j<n && nodes[j].label!=v){ // when exit this while loop get serch node
-          //  j++;
-        //}
-        //nodes[j].neighbours.push_back(u); // successfully insert u for node v
+        
         for(int j=0;j<n;j++){
             if(nodes[j].label==v){
                  nodes[j].neighbours.push_back(u); // push value u in node V
