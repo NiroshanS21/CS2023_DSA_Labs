@@ -5,13 +5,13 @@ using namespace std;
 #include <limits>
 #include <string>
 
-typedef pair<int, int> pii;
+typedef pair<int, int> recent;
 
 vector<int> dijkstraAlgorithm(vector<vector<pii>>& graph, int begin) {
     vector<int> dist(graph.size(), numeric_limits<int>::max()); // intialize relaxtion
     dist[begin] = 0;
     
-    priority_queue<pii, vector<pii>, greater<pii>> prq;
+    priority_queue<recent, vector<recent>, greater<recent>> prq;
     prq.push(make_pair(0, begin));
 
     while (!prq.empty()) { // check prq empty or not.
@@ -59,7 +59,7 @@ void adajanceMatr(vector<vector<pii>>& graph, int i,int j,int weight){ // graph,
 }
 
 int main(){
-    vector<vector<pii>> graph(6); 
+    vector<vector<recent>> graph(6); 
     // add values in graph represent as adj matrix
     adajanceMatr(graph, 0,1,10);
     adajanceMatr(graph, 0,4,15);
