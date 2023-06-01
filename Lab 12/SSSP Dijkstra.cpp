@@ -7,7 +7,7 @@ using namespace std;
 
 typedef pair<int, int> recent;
 
-vector<int> dijkstraAlgorithm(vector<vector<pii>>& graph, int begin) {
+vector<int> dijkstraAlgorithm(vector<vector<recent>>& graph, int begin) {
     vector<int> dist(graph.size(), numeric_limits<int>::max()); // intialize relaxtion
     dist[begin] = 0;
     
@@ -24,7 +24,7 @@ vector<int> dijkstraAlgorithm(vector<vector<pii>>& graph, int begin) {
           continue;
         }
 
-        for (pii neighbor : graph[i]) { 
+        for (recent neighbor : graph[i]) { 
             int j = neighbor.first; 
             int weight = neighbor.second; 
             if (dist[j] > dist[i] + weight) {  
@@ -52,7 +52,7 @@ void printShortPath(vector<int> dist,int begin) { // distance array, source node
 }
 
 //add values in adj matrix for graph
-void adajanceMatr(vector<vector<pii>>& graph, int i,int j,int weight){ // graph,from,to, weight of path
+void adajanceMatr(vector<vector<recent>>& graph, int i,int j,int weight){ // graph,from,to, weight of path
      //un direct graph
     graph[i].push_back(make_pair(j, weight));
     graph[j].push_back(make_pair(i, weight));
